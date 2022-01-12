@@ -152,9 +152,16 @@ BEGIN
 		 DATASignal(PackageWidth-1 DOWNTO 0) ;
 	
 	-- RCVSignal is rotated so the incomming bits are placed in order from LSB to MSB.
-	LSBTOMSB: FOR i IN 0 TO DATAWIDTH-1 GENERATE
-  	RCVSignalRotated(i) <= RCVSignal(i);  
-	END GENERATE;  	
+	
+  	RCVSignalRotated(0) <= RCVSignal(7);  
+	RCVSignalRotated(1) <= RCVSignal(6); 
+	RCVSignalRotated(2) <= RCVSignal(5);  
+	RCVSignalRotated(3) <= RCVSignal(4);  
+	RCVSignalRotated(4) <= RCVSignal(3);  
+	RCVSignalRotated(5) <= RCVSignal(2);  
+	RCVSignalRotated(6) <= RCVSignal(1);  
+	RCVSignalRotated(7) <= RCVSignal(0);  	
+	
 	
 	RCVREADY<=BYTESignalDelayed;
 	
